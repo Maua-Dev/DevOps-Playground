@@ -35,14 +35,14 @@ jobs:
 
   testContainer:
     runs-on: ubuntu-latest
-      steps:
-      - name: Build
-        run: docker build -t test .
-      - name: Run
-        run: docker -p 8080:8080 run test test
-      - name: Test main route
-        run: curl -o /dev/null -s -w "%{http_code}\n" http://localhost
-      - uses: nick-invision/assert-action@v1
-        with:
-          expected: 200
-          actual: curl -o /dev/null -s -w "%{http_code}\n" http://localhost
+    steps:
+    - name: Build
+      run: docker build -t test .
+    - name: Run
+      run: docker -p 8080:8080 run test test
+    - name: Test main route
+      run: curl -o /dev/null -s -w "%{http_code}\n" http://localhost
+    - uses: nick-invision/assert-action@v1
+      with:
+        expected: 200
+        actual: curl -o /dev/null -s -w "%{http_code}\n" http://localhost
