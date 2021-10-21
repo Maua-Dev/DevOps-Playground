@@ -2,7 +2,7 @@ FROM python:3.9.6-alpine
 
 EXPOSE 8080
 
-COPY ./src /app
+COPY ./ /app
 
 COPY requirements.txt /app
 
