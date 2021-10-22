@@ -45,6 +45,8 @@ jobs:
       run: docker ps
     - name: Get logs
       run: docker logs test
+    - name: Test main route
+      run: curl -o /dev/null -s -w "%{http_code}\n" localhost:8080
 
   testContainer:
     needs: createContainer
