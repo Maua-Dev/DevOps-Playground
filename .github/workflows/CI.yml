@@ -33,7 +33,7 @@ jobs:
         fail_ci_if_error: true
 
 
-  testContainer:
+  createContainer:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -41,6 +41,11 @@ jobs:
       run: docker build -t test .
     - name: Run
       run: docker run -d -p 8080:8080 test test
+
+  testContainer:
+    needs: createContainer
+    runs-on: ubuntu-latest
+    steps:
     - name: Test main route
       needs: Run
       run: curl -o /dev/null -s -w "%{http_code}\n" localhost:8080
