@@ -50,8 +50,6 @@ jobs:
     - name: Test main route
       id: mainRoute
       run: echo "::set-output name=status::$(curl -o /dev/null -s -w "%{http_code}\n" localhost:8080)"
-
-
     - uses: nick-invision/assert-action@v1
       with:
         expected: 200
