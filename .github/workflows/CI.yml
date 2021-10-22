@@ -37,12 +37,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: ls
-      run: ls
     - name: Build
       run: docker build -t test .
     - name: Run
-      run: docker -p 8080:8080 run test test
+      run: docker -d -p 8080:8080 run test test
     - name: Test main route
       run: curl -o /dev/null -s -w "%{http_code}\n" http://localhost
     - uses: nick-invision/assert-action@v1
