@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: ls
+    - name: ls
+      run: ls
     - uses: actions/checkout@v2
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
