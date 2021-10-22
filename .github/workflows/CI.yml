@@ -41,10 +41,11 @@ jobs:
       run: docker build -t test .
     - name: Run
       run: docker run -d -p 8080:8080 test test
-    - run: curl 127.0.0.1:8080
     - name: Test main route
+      needs: Run
       run: curl -o /dev/null -s -w "%{http_code}\n" localhost:8080
     - uses: nick-invision/assert-action@v1
+      needs: Run
       with:
         expected: 200
         actual: curl -o /dev/null -s -w "%{http_code}\n" localhost:8080
