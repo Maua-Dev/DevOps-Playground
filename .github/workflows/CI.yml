@@ -33,7 +33,7 @@ jobs:
         fail_ci_if_error: true
 
 
-  createContainer:
+  testContainer:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
