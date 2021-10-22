@@ -41,6 +41,10 @@ jobs:
       run: docker build -t test .
     - name: Run
       run: docker run --name test -d -p 8080:8080 test
+    - name: Get logs
+      run: docker ps
+    - name: Get logs
+      run: docker logs test
 
   testContainer:
     needs: createContainer
