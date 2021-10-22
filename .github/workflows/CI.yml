@@ -47,10 +47,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Test main route
-      needs: Run
       run: curl -o /dev/null -s -w "%{http_code}\n" localhost:8080
     - uses: nick-invision/assert-action@v1
-      needs: Run
       with:
         expected: 200
         actual: curl -o /dev/null -s -w "%{http_code}\n" localhost:8080
