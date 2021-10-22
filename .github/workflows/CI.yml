@@ -12,8 +12,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: ls
-      run: ls
     - uses: actions/checkout@v2
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
@@ -38,6 +36,8 @@ jobs:
   testContainer:
     runs-on: ubuntu-latest
     steps:
+    - name: ls
+          run: ls
     - name: Build
       run: docker build -t test .
     - name: Run
