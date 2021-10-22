@@ -46,6 +46,8 @@ jobs:
     needs: createContainer
     runs-on: ubuntu-latest
     steps:
+    - name: Get logs
+      run: docker logs test
     - name: Test main route
       run: curl -o /dev/null -s -w "%{http_code}\n" localhost:8080
     - uses: nick-invision/assert-action@v1
