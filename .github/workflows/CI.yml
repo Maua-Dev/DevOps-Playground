@@ -48,9 +48,11 @@ jobs:
     - name: Sleep for 5 seconds
       run: sleep 5s
     - name: Test main route
-      run: curl -o /dev/null -s -w "%{http_code}\n" localhost:8080
+      id: mainRoute
+      run: echo "::set-output name=status::$(curl -o /dev/null -s -w "%{http_code}\n" localhost:8080)"
+
 
     - uses: nick-invision/assert-action@v1
       with:
         expected: 200
-        actual: ${(curl -o /dev/null -s -w "%{http_code}\n" localhost:8080)}
+        actual:  ${{ steps.mainRoute.outputs.status.value }}
