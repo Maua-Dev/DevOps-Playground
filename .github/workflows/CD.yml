@@ -58,7 +58,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       
       - name: Updates Cluster
-        run: aws ecs update-service --cluster MauaDevCluster --service ${{ github.event.repository.name }}-service --force-new-deployment
+        run: aws ecs update-service --cluster MauaDevMss --service ${{ github.event.repository.name }}-service --force-new-deployment
           
           
 
