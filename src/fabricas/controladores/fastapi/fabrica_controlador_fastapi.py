@@ -33,7 +33,7 @@ class FabricaControladorFastapi:
         self.root = self.__config__[KEY.ROOT.value]
         self.url = f'{self.protocolo}://{self.host}:{self.porta}{self.root}'
 
-        self.app = FastAPI()
+        self.app = FastAPI(root_path="/dev/")
         self.app.include_router(Roteador(self))
 
     def metodoControlador1(self) -> object:
