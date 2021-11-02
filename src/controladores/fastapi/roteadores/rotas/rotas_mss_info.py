@@ -13,8 +13,8 @@ class RotasMssInfo(APIRouter):
         @self.get("/", response_model=ResRoot)
         async def root():
             req = ResRoot(
-                deployment=ProjConfig.getDeployment(),
+                deployment={"teste":2},
                 controlador=ProjConfig.getFastapi())
 
             print(req)
-            return "teste"
+            return req
