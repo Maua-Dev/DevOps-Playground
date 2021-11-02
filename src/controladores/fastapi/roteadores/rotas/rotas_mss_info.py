@@ -17,4 +17,4 @@ class RotasMssInfo(APIRouter):
                 controlador=ProjConfig.getFastapi())
 
             print(req)
-            return req
+            return "teste"
